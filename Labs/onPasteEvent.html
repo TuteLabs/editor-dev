@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Simple Editor Example</title>
+	<script src="../ckeditor-dev/ckeditor.js"></script>
+	<link href="../ckeditor-dev/samples/sample.css" rel="stylesheet">
+	<script>
+
+		var editor;
+
+		function loadEditor() {
+			// If we already have an editor, let's destroy it first.
+			if ( editor )
+				editor.destroy( true );
+
+			// Create the editor again, with the appropriate settings.
+			editor = CKEDITOR.replace( 'editor1',
+				{
+					customConfig : '../Labs/Simple Editor/config.js',
+				});
+			CKEDITOR.config.forcePasteAsPlainText = true;
+			// editor.on('paste', function(evt) {
+			//     // Update the text
+			// console.log(evt.data.dataValue + ' your additional comments.')
+			//     evt.editor.setData(evt.data.dataValue + ' your additional comments.');
+			// }, editor.element.$);
+
+		}
+
+		window.onload = loadEditor;
+
+	</script>
+</head>
+<body>
+	<form>
+		<p>
+			<br>
+			<textarea cols="80" id="editor1" name="editor1" rows="10">This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.</textarea>
+		</p>
+		<p>
+			<input type="submit" value="Submit">
+		</p>
+	</form>
+	<div id="footer">
+		<hr>
+		<p>
+			CKEditor - The text editor for the Internet - <a class="samples" href="http://ckeditor.com/">http://ckeditor.com</a>
+		</p>
+		<p id="copy">
+			Copyright &copy; 2003-2014, <a class="samples" href="http://cksource.com/">CKSource</a> - Frederico
+			Knabben. All rights reserved.
+		</p>
+	</div>
+</body>
+</html>
